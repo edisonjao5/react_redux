@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+export const activeStyle = { color: "#F15B5A" };
 const Header = () => {
-  const activeStyle = { color: "#F15B2A" };
   return (
     <nav className="navbar is-fixed-top is-dark">
       <div className="navbar-brand">
