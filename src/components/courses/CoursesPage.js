@@ -5,6 +5,9 @@ import * as authorActions from "../redux/actions/authorActions";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import CourseList from "./CourseList";
+import { Redirect } from "react-router-dom";
+import Spinner from "../common/Spinner";
+import { toast } from "react-toastify";
 
 class CoursesPage extends React.Component {
   // constructor(props) {
@@ -34,6 +37,9 @@ class CoursesPage extends React.Component {
   //   this.props.actions.createCourse(this.state.course);
   //   this.setState({ course: { title: "" } });
   // };
+  state = {
+    redirectToAddCoursePage: false,
+  };
 
   componentDidMount() {
     const { courses, authors, actions } = this.props;
@@ -51,30 +57,41 @@ class CoursesPage extends React.Component {
     }
   }
 
+  handleDeleteCourse = async (course) => {
+    toast.error(`The Course ${course.title} was deleted`);
+    try {
+      await this.props.actions.deleteCourse(course);
+    } catch (error) {
+      toast.warning("Delete course failed. " + error.message, {
+        autoClose: false,
+      });
+    }
+  };
+
   render() {
     return (
       <div className="section has-text-justified">
         {/* <form onSubmit={this.handleSubmit}> */}
+        {this.state.redirectToAddCoursePage && <Redirect to="/course" />}
         <p className="title my-5 is-family-code is-size-1 has-text-link">
           Courses
         </p>
-        {/* <div className="field">
-          <label className="label">Add a Course</label>
-          <div className="control">
-            <input
-              className="input is-link"
-              type="text"
-              placeholder="Courses"
-              onChange={this.handleChange}
-              value={this.state.course.title}
+        {this.props.loading ? (
+          <Spinner />
+        ) : (
+          <>
+            <button
+              className="button is-link is-outlined my-4"
+              onClick={() => this.setState({ redirectToAddCoursePage: true })}
+            >
+              Add Course
+            </button>
+            <CourseList
+              onDeleteClick={this.handleDeleteCourse}
+              courses={this.props.courses}
             />
-          </div>
-          <input
-            className="button is-link is-outlined my-4"
-            type="submit"
-            value="Add"
-          /> */}
-        <CourseList courses={this.props.courses} />
+          </>
+        )}
         {/* {this.props.courses.map((course) => (
           <div key={course.id}>
             <p>{course.title}</p>
@@ -91,6 +108,7 @@ CoursesPage.propTypes = {
   authors: PropTypes.array.isRequired,
   courses: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -107,6 +125,7 @@ function mapStateToProps(state) {
             };
           }),
     authors: state.authors,
+    loading: state.apiCallsInProgress > 0,
   };
 }
 
@@ -115,6 +134,7 @@ function mapDispatchToProps(dispatch) {
     actions: {
       loadCourses: bindActionCreators(courseActions.loadCourses, dispatch),
       loadAuthors: bindActionCreators(authorActions.loadAuthors, dispatch),
+      deleteCourse: bindActionCreators(courseActions.deleteCourse, dispatch),
     },
   };
 }

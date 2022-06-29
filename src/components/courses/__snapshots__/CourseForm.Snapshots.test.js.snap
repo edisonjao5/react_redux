@@ -1,0 +1,245 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sets submitt button label 'Save' when saving is false 1`] = `
+<form
+  onSubmit={[MockFunction]}
+>
+  <p
+    className="title my-5 is-family-code is-size-1 has-text-link"
+  >
+    Edit Course
+  </p>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="title"
+    >
+      Title
+    </label>
+    <div
+      className="control"
+    >
+      <input
+        className="input"
+        name="title"
+        type="text"
+        value="Securing React Apps with Auth0"
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="authorId"
+    >
+      Author
+    </label>
+    <div
+      className="control"
+    >
+      <div
+        className="select is-link is-normal"
+      >
+        <select
+          name="authorId"
+          value={1}
+        >
+          <option
+            value=""
+          >
+            Select Author
+          </option>
+          <option
+            value={1}
+          >
+            Cory House
+          </option>
+          <option
+            value={2}
+          >
+            Scott Allen
+          </option>
+          <option
+            value={3}
+          >
+            Dan Wahlin
+          </option>
+          <option
+            value={4}
+          >
+            Gabriel Abo
+          </option>
+          <option
+            value={5}
+          >
+            Edison Jao
+          </option>
+          <option
+            value={6}
+          >
+            Jhon Doe
+          </option>
+          <option
+            value={7}
+          >
+            Nathan Mao
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="category"
+    >
+      Category
+    </label>
+    <div
+      className="control"
+    >
+      <input
+        className="input"
+        name="category"
+        type="text"
+        value="JavaScript"
+      />
+    </div>
+  </div>
+  <button
+    className="button is-link is-outlined is-normal"
+    disabled={false}
+    type="submit"
+  >
+    Save
+  </button>
+</form>
+`;
+
+exports[`sets submitt button label 'Saving...' when saving is true 1`] = `
+<form
+  onSubmit={[MockFunction]}
+>
+  <p
+    className="title my-5 is-family-code is-size-1 has-text-link"
+  >
+    Edit Course
+  </p>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="title"
+    >
+      Title
+    </label>
+    <div
+      className="control"
+    >
+      <input
+        className="input"
+        name="title"
+        type="text"
+        value="Securing React Apps with Auth0"
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="authorId"
+    >
+      Author
+    </label>
+    <div
+      className="control"
+    >
+      <div
+        className="select is-link is-normal"
+      >
+        <select
+          name="authorId"
+          value={1}
+        >
+          <option
+            value=""
+          >
+            Select Author
+          </option>
+          <option
+            value={1}
+          >
+            Cory House
+          </option>
+          <option
+            value={2}
+          >
+            Scott Allen
+          </option>
+          <option
+            value={3}
+          >
+            Dan Wahlin
+          </option>
+          <option
+            value={4}
+          >
+            Gabriel Abo
+          </option>
+          <option
+            value={5}
+          >
+            Edison Jao
+          </option>
+          <option
+            value={6}
+          >
+            Jhon Doe
+          </option>
+          <option
+            value={7}
+          >
+            Nathan Mao
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      className="label"
+      htmlFor="category"
+    >
+      Category
+    </label>
+    <div
+      className="control"
+    >
+      <input
+        className="input"
+        name="category"
+        type="text"
+        value="JavaScript"
+      />
+    </div>
+  </div>
+  <button
+    className="button is-link is-outlined is-normal"
+    disabled={true}
+    type="submit"
+  >
+    Saving...
+  </button>
+</form>
+`;

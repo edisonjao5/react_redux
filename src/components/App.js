@@ -5,7 +5,9 @@ import AboutPage from "./about/AboutPage";
 import Header from "./common/Header";
 import PageNotFound from "./PageNotFound";
 import CoursesPage from "./courses/CoursesPage";
-import ManageCourse from "./courses/ManageCoursePages";
+import ManageCourse from "./courses/ManageCoursePages"; //eslint-disable-line import/no-named-as-default
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => (
   <div className="container is-fluid">
@@ -18,6 +20,7 @@ const App = () => (
       <Route path="/course" component={ManageCourse} />
       <Route component={PageNotFound} />
     </Switch>
+    <ToastContainer autoClose={3000} hideProgressBar />
   </div>
 );
 

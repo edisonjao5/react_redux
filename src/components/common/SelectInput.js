@@ -11,23 +11,24 @@ const SelectInput = ({
   error,
 }) => {
   return (
-    <div className="form-group">
-      <label htmlFor={name}>{label}</label>
-      <div className="field">
-        <select
-          name={name}
-          className="form-control"
-          value={value}
-          onChange={onChange}
-        >
-          <option value="">{defaultOption}</option>
-          {options.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.text}
-            </option>
-          ))}
-        </select>
-        {error && <div className="alert alert-danger">{error}</div>}
+    <div className="field">
+      <label className="label" htmlFor={name}>
+        {label}
+      </label>
+      <div className="control">
+        <div className="select is-link is-normal">
+          <select name={name} value={value} onChange={onChange}>
+            <option value="">{defaultOption}</option>
+            {options.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.text}
+              </option>
+            ))}
+          </select>
+        </div>
+        {error && (
+          <div className="notification is-danger is-light">{error}</div>
+        )}
       </div>
     </div>
   );

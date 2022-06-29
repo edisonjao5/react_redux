@@ -6,11 +6,15 @@ const Header = () => {
   return (
     <nav className="navbar is-fixed-top is-dark">
       <div className="navbar-brand">
+        <NavLink to="/" className="navbar-item" exact>
+          <img src="favicon.ico" alt="logo" className="ml-3" />
+        </NavLink>
+        {" | "}
         <NavLink
           to="/"
           activeStyle={activeStyle}
           exact
-          className="navbar-item ml-5 is-size-4"
+          className="navbar-item is-size-4"
         >
           Home
         </NavLink>
